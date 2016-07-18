@@ -12,7 +12,7 @@
     "watch:tsc": "./node_modules/.bin/tsc -w",
     "compile": "npm run compile:tsc",
     "watch": "npm run watch:tsc",
-    "start": "node src/js/app.js"
+    "start": "node src/js/example.js"
   },
   "dependencies": {
     "request": "*" 
