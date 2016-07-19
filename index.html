@@ -55,19 +55,46 @@ function sugar(p1, p2="42", p3?) {
   console.log(p2);
   console.log(p3);
 }
+
 sugar();
-// undefined
-// 42
-// undefined</pre></code>
+
+// undefined 42 undefined</pre></code>
             </section>
           </section>
 
           <section>
             <h1>Installierung</h1>
+
+            <section>
+              <pre><code>npm install -g typescript
+
+tsc helloworld.ts </code></pre>
+            </section>
+
+            <section>
+              <pre><code>{
+  ...
+  "devDependencies": {
+    "typescript": "^1.8.10"
+  },
+  "scripts": {
+    "watch:tsc": "./node_modules/.bin/tsc -w",
+    "watch": "npm run watch:tsc",
+    "start": "node src/js/example.js"
+  },
+  "dependencies": {
+    "request": "*" 
+  }
+}</code></pre>
+            </section>
             
-            <section>TBD npm</section>
-            <section>TBD package.json</section>
-            <section>TBD Linter</section>
+            <section>
+              <pre><code>TBD tsconfig</code></pre>
+            </section>
+
+            <section>
+              <pre><code>TBD tslint</code></pre>
+            </section>
           </section>
           
         </div>
