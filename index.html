@@ -38,27 +38,21 @@
               <img data-src="img/typescript_superset.png" >
             </section>        
             <section>
-             <pre><code>
-interface Robot { /* TBD */ }
-             </code></pre>
+             <pre><code>interface Robot { /* TBD */ }</code></pre>
             </section>
             <section>
-              <pre><code>
-class Terminator implements Robot {
+              <pre><code>class Terminator implements Robot {
   /* TBD */ 
 }</code></pre>
             </section>
             <section>
-              <pre><code>
-function sugar(p1, p2="42", p3?) {
-  console.log(p1);
-  console.log(p2);
-  console.log(p3);
+              <pre><code>function sugar(p1, p2="42", p3?) {
+  console.log(p1); // Hello
+  console.log(p2); // 42
+  console.log(p3); // undefined
 }
 
-sugar();
-
-// undefined 42 undefined</pre></code>
+sugar('Hello');</code></pre>
             </section>
           </section>
 
@@ -89,14 +83,65 @@ tsc helloworld.ts </code></pre>
             </section>
             
             <section>
-              <pre><code>TBD tsconfig</code></pre>
+              <pre><code>{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "ES6",
+        "noImplicitAny": false,
+        "rootDir": "./src/ts",
+        "outDir": "./src/js",
+        "sourceMap": false,
+        "removeComments": true
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}</code></pre>
             </section>
 
             <section>
               <pre><code>TBD tslint</code></pre>
             </section>
           </section>
-          
+
+          <section>
+            <h2>Objektorientierung</h2>
+
+            <section>
+              <h2>Interfaces</h2>
+              TBD
+            </section>
+
+            <section>
+              <h2>Klassen</h2>
+              TBD
+            </section>
+
+            <section>
+              <h2>Datenkapselung</h2>
+              TBD
+            </section>
+          </section>
+
+          <section>
+            <h2>Generics</h2>
+            TBD
+          </section>
+
+          <section>
+            <h2>Mixins</h2>
+            TBD
+          </section>
+ 
+          <section>
+            <h2>Union Types</h2>
+            TBD
+          </section>
+
+          <section>
+            <h2>Nützlichkeiten</h2>
+            TBD Rest-Parameter, Optionale Parameter...
+          </section>
         </div>
       </div>
 
