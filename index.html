@@ -105,27 +105,87 @@ tsc helloworld.ts </code></pre>
           </section>
 
           <section>
-            <h2>Objektorientierung</h2>
-
+            <h2>Basistypen</h2>
             <section>
-              <h2>Interfaces</h2>
-              TBD
+              <pre><code>let isDone: boolean = false;
+
+let decimal: number = 6;
+
+let color: string = "blue";</code></pre>
             </section>
+            <section><pre><code>let list: number[ ] = [1, 2, 3];
 
-            <section>
-              <h2>Klassen</h2>
-              TBD
+enum Color {Red, Green, Blue};
+let c: Color = Color.Green;</code></pre>
             </section>
-
             <section>
-              <h2>Datenkapselung</h2>
-              TBD
+              <pre><code>let notSure: any = 4;</code></pre>
             </section>
           </section>
 
           <section>
-            <h2>Basistypen</h2>
-            TBD
+            <h2>Objektorientierung</h2>
+            <h3>Interfaces</h3>
+            <h3>Klassen</h3>
+            <h3>Datenkapselung</h3>
+          </section>
+
+          <section>
+            <h2>Interfaces</h2>
+            <section><pre><code>nterface Robot {
+	name: string;
+}
+
+function printName(aRobot: Robot) {
+	console.log(aRobot.name);
+}
+
+let myRobot = 
+    {name: 'Arnold', language: 'German'};
+
+printName(myRobot);</code></pre>
+            </section>
+            <section><pre><code>interface Animal {
+    name?: string;
+    color?: string;
+}</code></pre>
+            </section>
+            <section>
+              <pre><code>interface Human extends Animal {
+    hugeBrain: boolean;
+}
+
+let aHuman: Human =
+    {name: 'Homo sapiens', hugeBrain: true};</code></pre>
+            </section>
+          </section>
+
+          <section>
+            <h2>Klassen</h2>
+            <section><pre><code>class SpecialRobot implements Robot {
+      name: string;
+	
+      constructor(name: string, color: string) {
+	this.name = name;
+      }
+
+   setColor(color: string) {
+		this.color = color;
+	}
+	
+	getColor() {
+		return this.color;
+	}
+}</code></pre>
+            </section>
+          </section>
+
+          <section>
+            <h2>Datenkapselung</h2>
+            <section><pre>TBD Klasse mit private, protected<code></code></pre></section>
+            <section><pre><code></code></pre></section>
+            <section><pre><code></code></pre></section>
+            <section><pre><code></code></pre></section>
           </section>
 
           <section>
@@ -133,15 +193,39 @@ tsc helloworld.ts </code></pre>
              
             <section>
               <h3>Funktionstypen</h3>
-              <pre><code>TBD</pre></code>
+              <pre><code>function printName(aRobot: Robot) {
+	console.log(aRobot.name)
+}
+
+let printFunc: (Robot) => void;
+printFunc = printName;
+
+// Error
+let printFunc2: (Robot) => boolean;
+printFunc2 = printName;
+
+</pre></code>
             </section>
             <section>
               <h3>Default/Optionale Parameter</h3>
-              <pre><code>TBD</pre></code>
+              <pre><code>function funcDefault(p1="World", p2?: number) {
+	console.log('Hello ' + p1 + ' ' + p2);
+}
+
+// Hello Buenos dias  42
+funcDefault("Buenos dias ", 42)
+
+// Hello World undefined
+funcDefault()</pre></code>
             </section>
             <section>
               <h3>Rest-Parameter</h3>
-              <pre><code>TBD</pre></code>
+              <pre><code>// Rest parameter
+function buildName(firstName: string,
+    ...restOfName: string[]) {
+      return firstName + " " +
+             restOfName.join(" ");
+}</pre></code>
             </section>
           </section>
 
