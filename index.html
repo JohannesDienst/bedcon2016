@@ -113,7 +113,7 @@ let decimal: number = 6;
 
 let color: string = "blue";</code></pre>
             </section>
-            <section><pre><code>let list: number[ ] = [1, 2, 3];
+            <section><pre><code>let aArray: number[ ] = [1, 2, 3];
 
 enum Color {Red, Green, Blue};
 let c: Color = Color.Green;</code></pre>
@@ -185,7 +185,6 @@ let aHuman: Human =
             <section><pre>TBD Klasse mit private, protected<code></code></pre></section>
             <section><pre><code></code></pre></section>
             <section><pre><code></code></pre></section>
-            <section><pre><code></code></pre></section>
           </section>
 
           <section>
@@ -231,7 +230,46 @@ function buildName(firstName: string,
 
           <section>
             <h2>Generics</h2>
-            TBD
+            <section>
+              <pre><code>// Generic function
+function identity&lt;T&gt;(arg: T): T {
+    return arg;
+}
+
+
+function loggingIdentity&lt;T&gt;(arg: T): T {
+    // Error: T doesn't have .length
+    console.log(arg.length);
+    return arg;
+}</code></pre>
+            </section>
+            <section>
+              <pre><code>// Generic constraint
+interface Lengthwise {
+    length: number;
+}
+
+function loggingIdentity&lt;T extends Lengthwise&gt; (arg: T): T {
+    console.log(arg.length);  // No error
+    return arg;
+}</code></pre>
+            </section>
+            <section>
+              <pre><code>// Generic class
+class GenericNumber&lt;T&gt; {
+    zeroValue: T;
+    add: (x: T, y: T) => T;
+}
+
+let myGenericNumber =
+    new GenericNumber&lt;number&gt;();
+
+myGenericNumber.zeroValue = 0;
+
+myGenericNumber.add =
+    function(x, y) { return x + y; };</code></pre>
+            </section>
+            <section><pre><code></code></pre></section>
           </section>
 
           <section>
@@ -241,22 +279,106 @@ function buildName(firstName: string,
  
           <section>
             <h2>Union Types</h2>
-            TBD
+            <section>
+              <pre><code>interface C3PO {
+    move();
+    talk();
+}
+
+interface R2D2 {
+    move();
+    whistle();
+}
+
+function getRobot(): C3PO | R2D2 {
+    // ...
+}</code></pre>
+            </section>
+            <section>
+              <pre><code>let robot = getRobot();
+
+robot.move(); // okay
+
+robot.talk(); // error</code></pre>
+            </section>
+            <section>
+              <pre><code></code></pre>
+            </section>
           </section>
 
           <section>
             <h2>Type Aliases</h2>
-            TBD
+            <section>
+              <pre><code>type Name = string;
+type NameResolver = () => string;
+type NameOrResolver = Name | NameResolver;</code></pre>
+            </section>
+            <section>
+              <pre><code>function getName(n: NameOrResolver): Name {
+    if (typeof n === 'string') {
+        return n;
+    }
+    else
+    {
+        return n();
+    }
+}</code></pre>
+            </section>
+            <section>
+              <pre><code></code></pre>
+            </section>
           </section>
 
           <section>
             <h2>String Literal Types</h2>
-            TBD
+            <section>
+              <pre><code>type Easing = "ease-in" | "ease-out" | 
+    "ease-in-out";</code></pre>
+            </section>
+            <section>
+              <pre><code>class UIElement {
+    animate(dx: number, dy: number,
+        easing: Easing) {
+        ...
+    }
+}</code></pre>
+            </section>
+            <section>
+              <pre><code>let button = new UIElement();
+button.animate(0, 0, "ease-in");
+button.animate(0, 0, "uneasy"); // error</code></pre>
+            </section>
+            <section>
+              <pre><code></code></pre>
+            </section>
           </section>
 
           <section>
             <h2>Polymorphic this Types</h2>
-            TBD
+            <section>
+              <pre><code>class BasicCalculator {
+
+    public constructor(
+        protected value: number = 0) { }
+
+    public currentValue(): number {
+        return this.value;
+    }
+
+    public multiply(operand: number): this {
+        this.value *= operand;
+        return this;
+    }
+}</code></pre>
+            </section>
+            <section>
+              <pre><code>let v = new BasicCalculator(2)
+            .multiply(5)
+            .currentValue();</code></pre>
+            </section>
+            <section>
+              <pre><code></code></pre>
+            </section>
           </section>
 
           <section>
