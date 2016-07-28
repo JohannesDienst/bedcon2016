@@ -38,11 +38,19 @@
               <p><img data-src="images/js-dialects-ven_mod.png"></p>
             </section>        
             <section>
-             <pre><code>interface Robot { /* TBD */ }</code></pre>
+             <pre><code>interface Robot {
+  model: string;
+  canSpeak(): boolean;
+}</code></pre>
             </section>
             <section>
               <pre><code>class Terminator implements Robot {
-  /* TBD */ 
+  
+  constructor(public model: string) {}
+
+  canSpeak(): boolean {
+    return true;
+  }
 }</code></pre>
             </section>
             <section>
@@ -184,8 +192,42 @@ let aHuman: Human =
 
           <section>
             <h2>Datenkapselung</h2>
-            <section><pre>TBD Klasse mit private, protected<code></code></pre></section>
-            <section><pre><code></code></pre></section>
+            <section>
+              <pre><code>class MiniRobot {
+  firstname: string;
+  public lastname: string;
+  protected age: number;
+  private gender: string;
+
+  constructor(firstname: string, lastname: string,
+     age: number, gender: string) {
+    this.firstname = firstname;
+    this.lastname = lastname;
+    this.age = age;
+    this.gender = gender
+  }
+}</code></pre>
+            </section>
+            <section>
+              <pre><code>class NanoRobot extends MiniRobot {
+  public getFirstname() {
+    return this.firstname;
+  }
+
+  public getLastname() {
+    return this.lastname;
+  }
+
+  public getAge() {
+    return this.age;
+  }
+
+// Private property!
+//  public getGender() {
+//    return this.gender;
+//  }
+}</code></pre>
+            </section>
             <section><pre><code></code></pre></section>
           </section>
 

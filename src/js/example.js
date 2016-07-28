@@ -1,5 +1,11 @@
 "use strict";
 class Terminator {
+    constructor(model) {
+        this.model = model;
+    }
+    canSpeak() {
+        return true;
+    }
 }
 function sugar(p1, p2 = "42", p3) {
     console.log(p1);
@@ -16,4 +22,13 @@ class MiniRobot {
     }
 }
 class NanoRobot extends MiniRobot {
+    getFirstname() {
+        return this.firstname;
+    }
+    getLastname() {
+        return this.lastname;
+    }
+    getAge() {
+        return this.age;
+    }
 }
