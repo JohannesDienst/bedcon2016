@@ -62,12 +62,11 @@ sugar('Hello');</code></pre>
             <section>
               <pre><code>npm install -g typescript
 
-tsc helloworld.ts </code></pre>
+tsc helloworld.ts</code></pre>
             </section>
 
             <section>
               <pre><code>{
-  ...
   "devDependencies": {
     "typescript": "^1.8.10"
   },
@@ -113,7 +112,8 @@ let decimal: number = 6;
 
 let color: string = "blue";</code></pre>
             </section>
-            <section><pre><code>let aArray: number[ ] = [1, 2, 3];
+            <section>
+              <pre><code>let aArray: number[ ] = [1, 2, 3];
 
 enum Color {Red, Green, Blue};
 let c: Color = Color.Green;</code></pre>
@@ -132,7 +132,8 @@ let c: Color = Color.Green;</code></pre>
 
           <section>
             <h2>Interfaces</h2>
-            <section><pre><code>nterface Robot {
+            <section>
+              <pre><code>interface Robot {
 	name: string;
 }
 
@@ -162,20 +163,21 @@ let aHuman: Human =
 
           <section>
             <h2>Klassen</h2>
-            <section><pre><code>class SpecialRobot implements Robot {
-      name: string;
+            <section>
+              <pre><code>class SpecialRobot implements Robot {
+    name: string;
 	
-      constructor(name: string, color: string) {
-	this.name = name;
-      }
+    constructor(name: string, color: string) {
+        this.name = name;
+    }
 
-   setColor(color: string) {
-		this.color = color;
-	}
+    setColor(color: string) {
+        this.color = color;
+    }
 	
-	getColor() {
-		return this.color;
-	}
+    getColor() {
+        return this.color;
+    }
 }</code></pre>
             </section>
           </section>
@@ -193,7 +195,7 @@ let aHuman: Human =
             <section>
               <h3>Funktionstypen</h3>
               <pre><code>function printName(aRobot: Robot) {
-	console.log(aRobot.name)
+    console.log(aRobot.name)
 }
 
 let printFunc: (Robot) => void;
@@ -208,7 +210,7 @@ printFunc2 = printName;
             <section>
               <h3>Default/Optionale Parameter</h3>
               <pre><code>function funcDefault(p1="World", p2?: number) {
-	console.log('Hello ' + p1 + ' ' + p2);
+    console.log('Hello ' + p1 + ' ' + p2);
 }
 
 // Hello Buenos dias  42
