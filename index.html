@@ -134,21 +134,21 @@ let c: Color = Color.Green;</code></pre>
           </section>
 
           <section>
-            <h2>Objektorientierung</h2>
-            <h3>Interfaces</h3>
-            <h3>Klassen</h3>
-            <h3>Datenkapselung</h3>
+            <h1>Objektorientierung</h1>
+            <p class="fragment grow visible" data-fragment-index="0">Interfaces</p>
+            <p class="fragment grow visible" data-fragment-index="1">Klassen</p>
+            <p class="fragment grow visible" data-fragment-index="2">Datenkapselung</p>
           </section>
 
           <section>
             <h2>Interfaces</h2>
             <section>
               <pre><code class="typescript hljs">interface Robot {
-	name: string;
+    name: string;
 }
 
 function printName(aRobot: Robot) {
-	console.log(aRobot.name);
+    console.log(aRobot.name);
 }
 
 let myRobot = 
@@ -197,41 +197,42 @@ let aHuman: Human =
             <h2>Datenkapselung</h2>
             <section>
               <pre><code class="typescript hljs">class MiniRobot {
-  firstname: string;
-  public lastname: string;
-  protected age: number;
-  private gender: string;
+    firstname: string;
+    public lastname: string;
+    protected age: number;
+    private gender: string;
 
-  constructor(firstname: string, lastname: string,
-     age: number, gender: string) {
-    this.firstname = firstname;
-    this.lastname = lastname;
-    this.age = age;
-    this.gender = gender
-  }
+    constructor(firstname: string, lastname: string,
+      age: number, gender: string) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.age = age;
+        this.gender = gender
+    }
 }</code></pre>
             </section>
             <section>
               <pre><code class="typescript hljs">class NanoRobot extends MiniRobot {
-  public getFirstname() {
-    return this.firstname;
-  }
+    public getFirstname() {
+        return this.firstname;
+    }
 
-  public getLastname() {
-    return this.lastname;
-  }
+    public getLastname() {
+        return this.lastname;
+    }
 
-  public getAge() {
-    return this.age;
-  }
+    public getAge() {
+       return this.age;
+    }
 
-// Private property!
-//  public getGender() {
-//    return this.gender;
-//  }
 }</code></pre>
             </section>
-            <section><pre><code></code></pre></section>
+            <section>
+              <pre><code>    // Private property!
+    //  public getGender() {
+    //    return this.gender;
+    //  }</code></pre>
+            </section>
           </section>
 
           <section>
