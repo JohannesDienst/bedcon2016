@@ -323,31 +323,26 @@ myGenericNumber.add =
           <section>
             <h2>Mixins</h2>
             <section>
-              <pre><code class="typescript hljs">function extend<T, U>(first: T, second: U): T & U {
-    let result = <T & U>{};
-    for (let id in first) {
-        (<any>result)[id] = (<any>first)[id];
-    }
-    for (let id in second) {
-        if (!result.hasOwnProperty(id)) {
-            (<any>result)[id] = (<any>second)[id];
-        }
-    }
-    return result;
-}
+              <pre><code class="typescript hljs">function extend&lt;T, U&gt;(first: T, second: U): T & U {
+    // Code omitted
+}</code></pre>
+            </section>
 
-class Person {
+            <section>
+              <pre><code class="typescript hljs">class Person {
     constructor(public name: string) { }
 }
-interface Loggable {
-    log(): void;
-}
-class ConsoleLogger implements Loggable {
+
+class ConsoleLogger {
     log() {
         // ...
     }
-}
-var jim = extend(new Person("Jim"), new ConsoleLogger());
+}</code></pre>
+            </section>
+
+            <section>
+              <pre><code class="typescript hljs">var jim = extend(new Person("Jim"), new ConsoleLogger());
+
 var n = jim.name;
 jim.log();</code></pre>
             </section>
