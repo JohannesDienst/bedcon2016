@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>reveal.js</title>
+    <title>Eine getypte Obermenge von JavaScript</title>
 
     <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/black.css">
+    <link id="theme" rel="stylesheet" href="css/theme/black.css">
 
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
@@ -228,10 +228,10 @@ let aHuman: Human =
 }</code></pre>
             </section>
             <section>
-              <pre><code>    // Private property!
-    //  public getGender() {
-    //    return this.gender;
-    //  }</code></pre>
+              <pre><code>      // Private property!
+      public getGender() {
+          return this.gender;
+      }</code></pre>
             </section>
           </section>
 
@@ -317,7 +317,6 @@ myGenericNumber.zeroValue = 0;
 myGenericNumber.add =
     function(x, y) { return x + y; };</code></pre>
             </section>
-            <section><pre><code></code></pre></section>
           </section>
 
           <section>
@@ -346,7 +345,6 @@ class ConsoleLogger {
 var n = jim.name;
 jim.log();</code></pre>
             </section>
-            <section><pre><code></code></pre></section>
           </section>
  
           <section>
@@ -373,16 +371,15 @@ robot.move(); // okay
 
 robot.talk(); // error</code></pre>
             </section>
-            <section>
-              <pre><code></code></pre>
-            </section>
           </section>
 
           <section>
             <h2>Type Aliases</h2>
             <section>
               <pre><code class="typescript hljs">type Name = string;
+
 type NameResolver = () => string;
+
 type NameOrResolver = Name | NameResolver;</code></pre>
             </section>
             <section>
@@ -395,9 +392,6 @@ type NameOrResolver = Name | NameResolver;</code></pre>
         return n();
     }
 }</code></pre>
-            </section>
-            <section>
-              <pre><code></code></pre>
             </section>
           </section>
 
@@ -417,11 +411,10 @@ type NameOrResolver = Name | NameResolver;</code></pre>
             </section>
             <section>
               <pre><code class="typescript hljs">let button = new UIElement();
+
 button.animate(0, 0, "ease-in");
+
 button.animate(0, 0, "uneasy"); // error</code></pre>
-            </section>
-            <section>
-              <pre><code></code></pre>
             </section>
           </section>
 
@@ -448,9 +441,6 @@ button.animate(0, 0, "uneasy"); // error</code></pre>
             .multiply(5)
             .currentValue();</code></pre>
             </section>
-            <section>
-              <pre><code></code></pre>
-            </section>
           </section>
 
           <section>
@@ -461,22 +451,23 @@ button.animate(0, 0, "uneasy"); // error</code></pre>
     (start: number): string;
     interval: number;
     reset(): void;
-}
+}</code></pre>
+            </section>
 
-function getCounter(): Counter {
-    let counter = <Counter>function (start: number) { };
+            <section>
+              <pre><code class="typescript hljs">function getCounter(): Counter {
+    let counter = &lt;Counter&gt;function (start: number) { };
     counter.interval = 123;
     counter.reset = function () { };
     return counter;
-}
+}</code></pre>
+            </section>
 
-let c = getCounter();
+            <section>
+              <pre><code class="typescript hljs">let c = getCounter();
 c(10);
 c.reset();
 c.interval = 5.0;</code></pre>
-            </section>
-            <section>
-              <pre><code></code></pre>
             </section>
           </section>
 
@@ -490,13 +481,11 @@ c.interval = 5.0;</code></pre>
 
 interface SelectableControl extends Control {
     select(): void;
-}
+}</code></pre>
+            </section>
 
-class Button extends Control {
-    select() { }
-}
-
-class TextBox extends Control {
+            <section>
+              <pre><code class="typescript hljs">class Button extends Control {
     select() { }
 }
 
@@ -506,9 +495,6 @@ class Image extends Control {
 class Location {
     select() { }
 }</code></pre>
-            </section>
-            <section>
-              <pre><code></code></pre>
             </section>
           </section>
 
@@ -523,9 +509,6 @@ let myArray: StringArray;
 myArray = ["Bob", "Fred"];
 
 let myStr: string = myArray[0];</code></pre>
-            </section>
-            <section>
-              <pre><code></code></pre>
             </section>
           </section>
         </div>
@@ -546,6 +529,26 @@ let myStr: string = myArray[0];</code></pre>
            { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
          ]
       });
+
+      // https://css-tricks.com/snippets/javascript/javascript-keycodes/
+      var theme = 'black';
+      Reveal.configure({
+        keyboard: {
+          84: function() {
+                if (theme === 'black')
+                {
+                  document.getElementById('theme').setAttribute('href','css/theme/white.css');
+                  theme = 'white';
+                }
+                else
+                {
+                  document.getElementById('theme').setAttribute('href','css/theme/black.css');
+                  theme = 'black';
+                }
+                return false; 
+              },
+       }
+     });
     </script>
   </body>
 </html>
