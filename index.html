@@ -109,7 +109,16 @@ tsc helloworld.ts</code></pre>
             </section>
 
             <section>
-              <pre><code class="json hljs">TBD tslint</code></pre>
+              <pre><code class="json hljs">{
+  "rules": {
+    "variable-name": [
+      true,
+      "check-format",
+      "allow-leading-underscore",
+      "ban-keywords"
+    ]
+  }
+}</code></pre>
             </section>
           </section>
 
@@ -511,6 +520,27 @@ myArray = ["Bob", "Fred"];
 let myStr: string = myArray[0];</code></pre>
             </section>
           </section>
+
+          <section>
+            <h2 class="clearfix" style="width: 100%; height: 220px;">
+              <div style="float: left; width: 20%;">
+                <img src="images/contact/TwitterLogo.png"/>
+              </div>
+              <div style="float: left; width: 80%; line-height: 220px; text-transform: none;">JohannesDienst</div>
+            </h2>
+            <h2 class="clearfix" style="width: 100%; height: 220px;">
+              <div style="float: left; width: 20%;">
+                <img src="images/contact/home_0077c7_200.png">
+              </div>
+              <div style="float: left; width: 80%; line-height: 220px; text-transform: none;">johannesdienst.net</div>
+            </h2>
+            <h2 class="clearfix" style="width: 100%; height: 220px;">
+              <div style="float: left; width: 20%;">
+                <img src="images/contact/fa-paper-plane_256_0_007dff_none.png">
+              </div>
+              <div style="float: left; width: 80%; line-height: 220px; text-transform: none;">jdienst@multamedio.de</div>
+            </h2>
+          </section>
         </div>
       </div>
       <script src="lib/js/head.min.js"></script>
@@ -518,10 +548,10 @@ let myStr: string = myArray[0];</code></pre>
 
       <script>
         // More info https://github.com/hakimel/reveal.js#configuration
-	Reveal.initialize({
-	  history: true,
+        Reveal.initialize({
+          history: true,
 
-	  // More info https://github.com/hakimel/reveal.js#dependencies
+          // More info https://github.com/hakimel/reveal.js#dependencies
           dependencies: [
            { src: 'plugin/markdown/marked.js' },
            { src: 'plugin/markdown/markdown.js' },
