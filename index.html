@@ -549,36 +549,36 @@ let myStr: string = myArray[0];</code></pre>
       <script>
         // More info https://github.com/hakimel/reveal.js#configuration
         Reveal.initialize({
-          history: true,
+            history: true,
 
-          // More info https://github.com/hakimel/reveal.js#dependencies
-          dependencies: [
-           { src: 'plugin/markdown/marked.js' },
-           { src: 'plugin/markdown/markdown.js' },
-           { src: 'plugin/notes/notes.js', async: true },
-           { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-         ]
-      });
+            // More info https://github.com/hakimel/reveal.js#dependencies
+            dependencies: [
+             { src: 'plugin/markdown/marked.js' },
+             { src: 'plugin/markdown/markdown.js' },
+             { src: 'plugin/notes/notes.js', async: true },
+             { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+           ]
+        });
 
-      // https://css-tricks.com/snippets/javascript/javascript-keycodes/
-      var theme = 'black';
-      Reveal.configure({
-        keyboard: {
-          84: function() {
-                if (theme === 'black')
-                {
-                  document.getElementById('theme').setAttribute('href','css/theme/white.css');
-                  theme = 'white';
-                }
-                else
-                {
-                  document.getElementById('theme').setAttribute('href','css/theme/black.css');
-                  theme = 'black';
-                }
-                return false; 
-              },
-       }
-     });
+        // https://css-tricks.com/snippets/javascript/javascript-keycodes/
+        var theme = 'black';
+        Reveal.configure({
+          keyboard: {
+            84: function() {
+                  if (theme === 'black')
+                  {
+                    document.getElementById('theme').setAttribute('href','css/theme/white.css');
+                    theme = 'white';
+                  }
+                  else
+                  {
+                    document.getElementById('theme').setAttribute('href','css/theme/black.css');
+                    theme = 'black';
+                  }
+                  return false; 
+                },
+          }
+        });
     </script>
   </body>
 </html>

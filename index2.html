@@ -84,6 +84,15 @@ testBuyTO.setSalutation(astTO.getSalutation());</code></pre>
 testBuyTO.setSalutation(astTO.getSalutation());</code></pre>
             </section>
             <section>
+              <pre class="java hljs"><code data-trim data-noescape>return jdbcTemplate.query(
+      "select * from MASTERDATA where \"NUMBER\" = ?",
+      new Object[] { theNumber },
+      new ResultSetExtractor&lt;AstTO&gt;()
+      {
+        // Omit extraction ;)
+      } );</code></pre>
+            </section>
+            <section>
               <h2>Obviously Not!</h2>
             </section>
           </section>
@@ -165,17 +174,37 @@ if (astTO == null)
 
       <script>
         // More info https://github.com/hakimel/reveal.js#configuration
-	Reveal.initialize({
-	  history: true,
+        Reveal.initialize({
+          history: true,
 
-	  // More info https://github.com/hakimel/reveal.js#dependencies
+          // More info https://github.com/hakimel/reveal.js#dependencies
           dependencies: [
-           { src: 'plugin/markdown/marked.js' },
-           { src: 'plugin/markdown/markdown.js' },
-           { src: 'plugin/notes/notes.js', async: true },
-           { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-         ]
-      });
+            { src: 'plugin/markdown/marked.js' },
+            { src: 'plugin/markdown/markdown.js' },
+            { src: 'plugin/notes/notes.js', async: true },
+            { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+          ]
+        });
+
+        // https://css-tricks.com/snippets/javascript/javascript-keycodes/
+        var theme = 'black';
+        Reveal.configure({
+          keyboard: {
+            84: function() {
+                  if (theme === 'black')
+                  {
+                    document.getElementById('theme').setAttribute('href','css/theme/white.css');
+                    theme = 'white';
+                  }
+                  else
+                  {
+                    document.getElementById('theme').setAttribute('href','css/theme/black.css');
+                    theme = 'black';
+                  }
+                  return false; 
+                },
+          }
+        });
     </script>
   </body>
 </html>
