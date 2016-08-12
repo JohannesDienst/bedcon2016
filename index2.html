@@ -40,42 +40,70 @@
             <p>Do NOT take it personally!</p>
           </section>
 
+          <section>
+            <h1>Whats the Problem</h1>
+            <section>
+              <pre class="java hljs"><code>AstTO astTO = getAstDAO().getAstDetails("123456");
+
+// Next line causes NPE
+testBuyTO.setSalutation(astTO.getSalutation());</code></pre>
+            </section>
+            <section>
+              <h2>Got it?</h2>
+            </section>
+          </section>
+
+          <section>
+            <h1>WTF?! Approach</h1>
+            <section>
+              <h2>Logfiles should help...</h2>
+            </section>
+            <section>
+              <img src="images/keyboard.gif"/>
+              <p style="font-size: 8px;">Source wifflegif.com</p>
+            </section>
+            <section>
+              <blockquote>No way this can go wrong!</blockquote>
+            </section>
+          </section>
+
           <section data-background-image="images/elliot.jpg">
             <h1>Elliot says</h1>
             <section>
               <blockquote class="fragment fade-in" style="background:#343434;">Debugging’s actually all about finding the bug. About understanding why the bug was there to begin with. About knowing that it’s existence was no accident.</blockquote>
             </section>
           </section>
-          
+
           <section>
-            <h1>Whats the Problem</h1>
+            <h1>Debugger helps?</h1>
             
             <section>
-              <pre class="java hljs"><code>TBD</code></pre>
-            </section>
-            <section>
-              <h2>Got it?</h2>
-            </section>
-          </section>
-          
-          <section>
-            <h1>Does a debugger help?</h1>
-            
-            <section>
-              <pre class="java hljs"><code>TBD</code></pre>
+              <pre class="java hljs"><code data-trim data-noescape>AstTO astTO = getAstDAO().getAstDetails("123456");
+
+<mark>// astTO == null</mark>
+testBuyTO.setSalutation(astTO.getSalutation());</code></pre>
             </section>
             <section>
               <h2>Obviously Not!</h2>
             </section>
           </section>
-          
+
           <section>
             <h1>Pragmatic Approach</h1>
             <section>
               <blockquote>Take a deep breath and THINK! about what could be causing the bug.</blockquote>
             </section>
             <section>
-              <pre class="java hljs"><code>TBD</code></pre>
+              <pre class="java hljs"><code>getAstDAO().getAstDetails("123456");</code></pre>
+            </section>
+            <section>
+              <pre class="java hljs"><code data-trim data-noescape>return jdbcTemplate.query(
+      "select * from MASTERDATA where \"NUMBER\" = <mark>?</mark>",
+      new Object[] { <mark>theNumber</mark> },
+      new ResultSetExtractor&lt;AstTO&gt;()
+      {
+        // Omit extraction ;)
+      } );</code></pre>
             </section>
             <section>
               <h2>Here we go...</h2>
@@ -83,16 +111,30 @@
           </section>
 
           <section>
-            <h1>WTF?! Approach</h1>
+            <h1>Solution</h1>
             <section>
-              <blockquote>No way this can go wrong!</blockquote>
+              <pre class="java hljs"><code data-trim data-noescape>AstTO astTO = getAstDAO().getAstDetails("123456");
+
+if (astTO == null)
+{
+    Log.get().warn("Missing AstNo in Database: '123456'");
+    astTO = getNewDummyAstTO();
+}</code></pre>
             </section>
             <section>
-              <pre class="java hljs"><code>TBD</code></pre>
+              <h2>Missing database entry caused the bug!</h2>
             </section>
-            <section>
-              <h2>Here we go...</h2>
-            </section>
+          </section>
+
+          <section data-background-image="images/elliot.jpg">
+            <h2>Lessons learned</h2>
+            <ol>
+              <li>Debugging still sucks</li>
+              <li>Necessary evil</li>
+              <li>Think!</li>
+              <li>Root cause analysis</li>
+              <li>Check your Assumptions!</li>
+            </ol>
           </section>
 
           <section>
