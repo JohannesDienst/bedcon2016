@@ -11,7 +11,7 @@
   "scripts": {
     "watch:tsc": "./node_modules/.bin/tsc -w",
     "watch": "npm run watch:tsc",
-    "start": "node src/js/example.js"
+    "start": "node src/js/livecoding.js"
   },
   "dependencies": {
     "request": "*" 

@@ -1,18 +1,10 @@
 "use strict";
-class Terminator {
-    constructor(model) {
-        this.model = model;
-    }
-    canSpeak() {
-        return true;
-    }
-}
 function sugar(p1, p2 = "42", p3) {
     console.log(p1);
     console.log(p2);
     console.log(p3);
 }
-sugar('Hello');
+sugar('Hello1');
 class MiniRobot {
     constructor(firstname, lastname, age, gender) {
         this.firstname = firstname;

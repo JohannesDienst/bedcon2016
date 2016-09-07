@@ -1,25 +1,11 @@
 "use strict";
 
-interface Robot {
-  model: string;
-  canSpeak(): boolean;
-}
-
-class Terminator implements Robot {
-
-  constructor(public model: string) {}
-
-  canSpeak(): boolean {
-    return true;
-  } 
-}
-
 function sugar(p1, p2="42", p3?) {
   console.log(p1);
   console.log(p2);
   console.log(p3);
 }
-sugar('Hello');
+sugar('Hello1');
 ////////////////////////////////////////////////7
 class MiniRobot {
   firstname: string;
