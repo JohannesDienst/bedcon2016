@@ -1,4 +1,5 @@
 "use strict";
+module livecoding {
 
 let isDone :boolean = false;
 let decimal :number = 6;
@@ -151,7 +152,7 @@ myGenericNumber.add =
 ///////////////////////////////////////////////////////////////
 
 //Mixins///////////////////////////////////////////////////////
-function applyMixins(derivedCtor :any, baseCtors :any[]) {
+function applyMixin(derivedCtor :any, baseCtors :any[]) {
     baseCtors.forEach(baseCtor => {
         Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
             derivedCtor.prototype[name] = baseCtor.prototype[name];
@@ -172,7 +173,7 @@ class PersonLogger implements Person, ConsoleLogger {
     log() {}
 }
 
-applyMixins(PersonLogger, [new Person("Jim"), new ConsoleLogger()]);
+applyMixin(PersonLogger, [new Person("Jim"), new ConsoleLogger()]);
 var jim = new PersonLogger("Jim");
 var n = jim.name;
 jim.log();
@@ -317,3 +318,5 @@ let myArray :StringArray;
 myArray = ["Bob", "Fred"];
 
 let myStr :string = myArray[0];
+
+}
