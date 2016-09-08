@@ -41,18 +41,18 @@
             </section>        
             <section>
              <pre><code class="typescript hljs">interface Robot {
-  model: string;
-  canSpeak(): boolean;
+    model :string;
+    canSpeak() :boolean;
 }</code></pre>
             </section>
             <section>
               <pre><code class="typescript hljs">class Terminator implements Robot {
-  
-  constructor(public model: string) {}
 
-  canSpeak(): boolean {
-    return true;
-  }
+    constructor(public model :string){}
+
+    canSpeak() :boolean {
+        return true;
+    }
 }</code></pre>
             </section>
             <section>
@@ -83,7 +83,7 @@ tsc helloworld.ts</code></pre>
   "scripts": {
     "watch:tsc": "./node_modules/.bin/tsc -w",
     "watch": "npm run watch:tsc",
-    "start": "node src/js/example.js"
+    "start": "node src/js/livecoding.js"
   },
   "dependencies": {
     "request": "*" 
@@ -125,20 +125,21 @@ tsc helloworld.ts</code></pre>
           <section>
             <h2>Basistypen</h2>
             <section>
-              <pre><code>let isDone: boolean = false;
+              <pre><code>let isDone :boolean = false;
 
-let decimal: number = 6;
+let decimal :number = 6;
 
-let color: string = "blue";</code></pre>
+let color :string = "berlin";</code></pre>
             </section>
             <section>
-              <pre><code class="typescript hljs">let aArray: number[ ] = [1, 2, 3];
+              <pre><code class="typescript hljs">let aArray :number[ ] = [1, 2, 3];
 
 enum Color {Red, Green, Blue};
+
 let c: Color = Color.Green;</code></pre>
             </section>
             <section>
-              <pre><code>let notSure: any = 4;</code></pre>
+              <pre><code>let notSure :any = 4;</code></pre>
             </section>
           </section>
 
@@ -153,48 +154,42 @@ let c: Color = Color.Green;</code></pre>
             <h2>Interfaces</h2>
             <section>
               <pre><code class="typescript hljs">interface Robot {
-    name: string;
+    name :string;
+    canSpeak() :boolean;
 }
 
-function printName(aRobot: Robot) {
+function printName(aRobot :Robot) {
     console.log(aRobot.name);
 }
 
-let myRobot = 
-    {name: 'Arnold', language: 'German'};
+let T800 = 
+    {name: 'Arnold', canSpeak: function(){return false;}};
 
-printName(myRobot);</code></pre>
+printName(T800);</code></pre>
             </section>
             <section>
               <pre><code class="typescript hljs">interface Animal {
-    name?: string;
-    color?: string;
+    name? :string;
+    color? :string;
 }</code></pre>
             </section>
             <section>
               <pre><code class="typescript hljs">interface Human extends Animal {
-    hugeBrain: boolean;
+    hugeBrain :boolean;
 }
 
-let aHuman: Human =
-    {name: 'Homo sapiens', hugeBrain: true};</code></pre>
+let aHuman :Human = {name: 'Homo sapiens', hugeBrain: true};</code></pre>
             </section>
           </section>
 
           <section>
             <h2>Klassen</h2>
             <section>
-              <pre><code class="typescript hljs">class SpecialRobot implements Robot {
-    name: string;
-	
-    constructor(name: string, color: string) {
-        this.name = name;
-    }
+              <pre><code class="typescript hljs">class Dog implements Animal {
+    name :string;
 
-    setColor(color: string) {
-        this.color = color;
-    }
-	
+    constructor(name :string, public color :string) {}
+
     getColor() {
         return this.color;
     }
@@ -205,14 +200,14 @@ let aHuman: Human =
           <section>
             <h2>Datenkapselung</h2>
             <section>
-              <pre><code class="typescript hljs">class MiniRobot {
-    firstname: string;
-    public lastname: string;
-    protected age: number;
-    private gender: string;
+              <pre><code class="typescript hljs">class Labrador {
+    firstname :string;
+    public lastname :string;
+    protected age :number;
+    private gender :string;
 
-    constructor(firstname: string, lastname: string,
-      age: number, gender: string) {
+    constructor(firstname :string, lastname :string,
+      age :number, gender :string) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.age = age;
@@ -221,7 +216,8 @@ let aHuman: Human =
 }</code></pre>
             </section>
             <section>
-              <pre><code class="typescript hljs">class NanoRobot extends MiniRobot {
+              <pre><code class="typescript hljs">class GoldenRetriever extends Labrador {
+
     public getFirstname() {
         return this.firstname;
     }
@@ -233,11 +229,10 @@ let aHuman: Human =
     public getAge() {
        return this.age;
     }
-
 }</code></pre>
             </section>
             <section>
-              <pre><code>      // Private property!
+              <pre><code>// Private property!
       public getGender() {
           return this.gender;
       }</code></pre>
@@ -249,36 +244,34 @@ let aHuman: Human =
              
             <section>
               <h3>Funktionstypen</h3>
-              <pre><code class="typescript hljs">function printName(aRobot: Robot) {
-    console.log(aRobot.name)
+              <pre><code class="typescript hljs">function printDogName(aDog :Dog) {
+    console.log(aDog.name);
 }
 
-let printFunc: (Robot) => void;
+let printFunc :(Dog) => void;
 printFunc = printName;
 
 // Error
-let printFunc2: (Robot) => boolean;
-printFunc2 = printName;
-
-</pre></code>
+let printFunc2 :(Dog) => boolean;
+printFunc2 = printName;</pre></code>
             </section>
             <section>
               <h3>Default/Optionale Parameter</h3>
-              <pre><code class="typescript hljs">function funcDefault(p1="World", p2?: number) {
+              <pre><code class="typescript hljs">function funcDefault(p1="World", p2? :number) {
     console.log('Hello ' + p1 + ' ' + p2);
 }
 
 // Hello Buenos dias  42
-funcDefault("Buenos dias ", 42)
+funcDefault("Buenos dias ", 42);
 
 // Hello World undefined
-funcDefault()</pre></code>
+funcDefault();</pre></code>
             </section>
             <section>
               <h3>Rest-Parameter</h3>
               <pre><code class="typescript hljs">// Rest parameter
-function buildName(firstName: string,
-    ...restOfName: string[]) {
+function buildName(firstName :string,
+    ...restOfName :string[]) {
       return firstName + " " +
              restOfName.join(" ");
 }</pre></code>
@@ -289,12 +282,12 @@ function buildName(firstName: string,
             <h2>Generics</h2>
             <section>
               <pre><code class="typescript hljs">// Generic function
-function identity&lt;T&gt;(arg: T): T {
+function identity&lt;T&gt;(arg :T) :T {
     return arg;
 }
 
 
-function loggingIdentity&lt;T&gt;(arg: T): T {
+function loggingIdentity&lt;T&gt;(arg :T) :T {
     // Error: T doesn't have .length
     console.log(arg.length);
     return arg;
@@ -303,10 +296,10 @@ function loggingIdentity&lt;T&gt;(arg: T): T {
             <section>
               <pre><code class="typescript hljs">// Generic constraint
 interface Lengthwise {
-    length: number;
+    length :number;
 }
 
-function loggingIdentity&lt;T extends Lengthwise&gt; (arg: T): T {
+function loggingIdentity&lt;T extends Lengthwise&gt; (arg :T) :T {
     console.log(arg.length);  // No error
     return arg;
 }</code></pre>
@@ -314,8 +307,8 @@ function loggingIdentity&lt;T extends Lengthwise&gt; (arg: T): T {
             <section>
               <pre><code class="typescript hljs">// Generic class
 class GenericNumber&lt;T&gt; {
-    zeroValue: T;
-    add: (x: T, y: T) => T;
+    zeroValue :T;
+    add :(x :T, y :T) => T;
 }
 
 let myGenericNumber =
@@ -331,26 +324,37 @@ myGenericNumber.add =
           <section>
             <h2>Mixins</h2>
             <section>
-              <pre><code class="typescript hljs">function extend&lt;T, U&gt;(first: T, second: U): T & U {
-    // Code omitted
+              <pre><code class="typescript hljs">function applyMixins(derivedCtor :any, baseCtors :any[]) {
+    baseCtors.forEach(baseCtor => {
+        Object.getOwnPropertyNames(baseCtor.prototype).
+            forEach(name => {
+                derivedCtor.prototype[name] =
+                    baseCtor.prototype[name];
+        });
+    });
 }</code></pre>
             </section>
 
             <section>
               <pre><code class="typescript hljs">class Person {
-    constructor(public name: string) { }
+    constructor(public name :string) { }
 }
 
 class ConsoleLogger {
-    log() {
-        // ...
-    }
+    log() {}
 }</code></pre>
             </section>
 
             <section>
-              <pre><code class="typescript hljs">var jim = extend(new Person("Jim"), new ConsoleLogger());
+              <pre><code class="typescript hljs">class PersonLogger implements Person, ConsoleLogger {
+    constructor(public name :string){}
+    log() {}
+}</code></pre>
+            </section>
 
+            <section>
+              <pre><code class="typescript hljs">applyMixins(PersonLogger, [new Person("Jim"), new ConsoleLogger()]);
+var jim = new PersonLogger("Jim");
 var n = jim.name;
 jim.log();</code></pre>
             </section>
@@ -369,7 +373,7 @@ interface R2D2 {
     whistle();
 }
 
-function getRobot(): C3PO | R2D2 {
+function getRobot() :C3PO | R2D2 {
     // ...
 }</code></pre>
             </section>
@@ -392,7 +396,7 @@ type NameResolver = () => string;
 type NameOrResolver = Name | NameResolver;</code></pre>
             </section>
             <section>
-              <pre><code>function getName(n: NameOrResolver): Name {
+              <pre><code>function getName(n :NameOrResolver): Name {
     if (typeof n === 'string') {
         return n;
     }
@@ -412,8 +416,8 @@ type NameOrResolver = Name | NameResolver;</code></pre>
             </section>
             <section>
               <pre><code>class UIElement {
-    animate(dx: number, dy: number,
-        easing: Easing) {
+    animate(dx :number, dy :number,
+        easing :Easing) {
         ...
     }
 }</code></pre>
@@ -433,13 +437,13 @@ button.animate(0, 0, "uneasy"); // error</code></pre>
               <pre><code class="typescript hljs">class BasicCalculator {
 
     public constructor(
-        protected value: number = 0) { }
+        protected value :number = 0) { }
 
-    public currentValue(): number {
+    public currentValue() :number {
         return this.value;
     }
 
-    public multiply(operand: number): this {
+    public multiply(operand: number) :this {
         this.value *= operand;
         return this;
     }
@@ -457,15 +461,15 @@ button.animate(0, 0, "uneasy"); // error</code></pre>
             
             <section>
               <pre><code class="typescript hljs">interface Counter {
-    (start: number): string;
-    interval: number;
-    reset(): void;
+    (start: number) :string;
+    interval :number;
+    reset() :void;
 }</code></pre>
             </section>
 
             <section>
-              <pre><code class="typescript hljs">function getCounter(): Counter {
-    let counter = &lt;Counter&gt;function (start: number) { };
+              <pre><code class="typescript hljs">function getCounter() :Counter {
+    let counter = &lt;Counter&gt;function (start :number) { };
     counter.interval = 123;
     counter.reset = function () { };
     return counter;
@@ -473,10 +477,10 @@ button.animate(0, 0, "uneasy"); // error</code></pre>
             </section>
 
             <section>
-              <pre><code class="typescript hljs">let c = getCounter();
-c(10);
-c.reset();
-c.interval = 5.0;</code></pre>
+              <pre><code class="typescript hljs">let count :Counter = getCounter();
+count(10);
+count.reset();
+count.interval = 5.0;</code></pre>
             </section>
           </section>
 
@@ -485,11 +489,11 @@ c.interval = 5.0;</code></pre>
             
             <section>
               <pre><code class="typescript hljs">class Control {
-    private state: any;
+    private state :any;
 }
 
 interface SelectableControl extends Control {
-    select(): void;
+    select() :void;
 }</code></pre>
             </section>
 
@@ -511,13 +515,13 @@ class Location {
             <h2>Index Typen</h2>
             <section>
               <pre><code class="typescript hljs">interface StringArray {
-    [index: number]: string;
+    [index :number] :string;
 }
 
-let myArray: StringArray;
+let myArray :StringArray;
 myArray = ["Bob", "Fred"];
 
-let myStr: string = myArray[0];</code></pre>
+let myStr :string = myArray[0];</code></pre>
             </section>
           </section>
 
