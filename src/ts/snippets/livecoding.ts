@@ -225,7 +225,7 @@ function getName(n :NameOrResolver) :Name {
 ///////////////////////////////////////////////////////////////
 
 // String Literal Types ///////////////////////////////////////
-/*type Easing = "ease-in" | "ease-out" | "ease-in-out";
+type Easing = "ease-in" | "ease-out" | "ease-in-out";
 
 class UIElement {
     animate(dx: number, dy: number,
@@ -238,13 +238,11 @@ let button = new UIElement();
 
 button.animate(0, 0, "ease-in");
 
-// button.animate(0, 0, "uneasy"); // error*/
+// button.animate(0, 0, "uneasy"); // error
 
 ///////////////////////////////////////////////////////////////
 
 // Polymorphic this types /////////////////////////////////////
-
-/*
 class BasicCalculator {
 
     public constructor(protected value :number = 0) { }
@@ -261,7 +259,7 @@ class BasicCalculator {
 
 let v = new BasicCalculator(2)
             .multiply(5)
-            .currentValue();*/
+            .currentValue();
 
 ///////////////////////////////////////////////////////////////
 

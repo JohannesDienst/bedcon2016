@@ -124,6 +124,27 @@ var livecoding;
             return n();
         }
     }
+    class UIElement {
+        animate(dx, dy, easing) {
+        }
+    }
+    let button = new UIElement();
+    button.animate(0, 0, "ease-in");
+    class BasicCalculator {
+        constructor(value = 0) {
+            this.value = value;
+        }
+        currentValue() {
+            return this.value;
+        }
+        multiply(operand) {
+            this.value *= operand;
+            return this;
+        }
+    }
+    let v = new BasicCalculator(2)
+        .multiply(5)
+        .currentValue();
     function getCounter() {
         let counter = function (start) { };
         counter.interval = 123;

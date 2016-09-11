@@ -1,0 +1,5 @@
+npm install -g typings
+typings install dt~jquery --save --global
+
+
+/// <reference path="./typings/index.d.ts" />
