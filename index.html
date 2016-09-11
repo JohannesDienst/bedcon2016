@@ -337,7 +337,7 @@ myGenericNumber.add =
 
             <section>
               <pre><code class="typescript hljs">class Person {
-    constructor(public name :string) { }
+    name :string;
 }
 
 class ConsoleLogger {
@@ -348,12 +348,15 @@ class ConsoleLogger {
             <section>
               <pre><code class="typescript hljs">class PersonLogger implements Person, ConsoleLogger {
     constructor(public name :string){}
-    log() {}
+    log :()=>void;
 }</code></pre>
             </section>
 
             <section>
-              <pre><code class="typescript hljs">applyMixins(PersonLogger, [new Person("Jim"), new ConsoleLogger()]);
+              <pre><code class="typescript hljs">applyMixins(
+    PersonLogger,
+    [new Person("Jim"), new ConsoleLogger()]);
+
 var jim = new PersonLogger("Jim");
 var n = jim.name;
 jim.log();</code></pre>

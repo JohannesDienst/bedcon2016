@@ -161,7 +161,7 @@ function applyMixin(derivedCtor :any, baseCtors :any[]) {
 }
 
 class Person {
-    constructor(public name :string) { }
+    name :string;
 }
 
 class ConsoleLogger {
@@ -170,10 +170,10 @@ class ConsoleLogger {
 
 class PersonLogger implements Person, ConsoleLogger {
     constructor(public name :string){}
-    log() {}
+    log :()=>void;
 }
 
-applyMixin(PersonLogger, [new Person("Jim"), new ConsoleLogger()]);
+applyMixin(PersonLogger, [new Person(), new ConsoleLogger()]);
 var jim = new PersonLogger("Jim");
 var n = jim.name;
 jim.log();

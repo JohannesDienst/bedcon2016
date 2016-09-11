@@ -98,9 +98,6 @@ var livecoding;
         });
     }
     class Person {
-        constructor(name) {
-            this.name = name;
-        }
     }
     class ConsoleLogger {
         log() { }
@@ -109,9 +106,8 @@ var livecoding;
         constructor(name) {
             this.name = name;
         }
-        log() { }
     }
-    applyMixin(PersonLogger, [new Person("Jim"), new ConsoleLogger()]);
+    applyMixin(PersonLogger, [new Person(), new ConsoleLogger()]);
     var jim = new PersonLogger("Jim");
     var n = jim.name;
     jim.log();
